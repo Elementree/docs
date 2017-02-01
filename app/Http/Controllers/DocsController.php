@@ -20,11 +20,14 @@ class DocsController extends Controller
         return $this->view('welcome');
     }
 
-    public function view($doc, $folder = null){
+    public function view($folder = null, $doc = null){
 
-        $viewPath = 'docs.' . ($folder ? $folder + '.' : '') . $doc;
+        $parts = ['docs'];
+        if($folder) array_push($parts, $folder);
+        if($doc) array_push($parts, $doc);
 
-        
+        $viewPath = implode($parts, '.');
+
 
         if(!$this->docs->has($viewPath)){
             abort(404);
