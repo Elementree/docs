@@ -4,8 +4,16 @@
 
 ## Main Root
 
-### < html >
+### html
+
 - root element
+
+```html
+<html>
+    <head></head>
+    <body></body>
+</html>
+```
 
 ## Document Metadata
 
